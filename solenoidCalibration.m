@@ -1,7 +1,7 @@
 clear all; close all;
 
 % args
-file = 'C:\Users\labuser\Documents\170613_solenoidCalibration_booth1.txt';
+file = 'D:\GitHub\solenoidCalibration\180117_solenoidCalibration_recBooth.txt';
 order = 1;
 targetVol = 2.5; %microliters
 
