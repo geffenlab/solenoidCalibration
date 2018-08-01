@@ -1,7 +1,11 @@
 clear all; close all;
 
 % args
+<<<<<<< HEAD
 file = 'D:\GitHub\solenoidCalibration\180801_solenoidCalibration_booth2.txt';
+=======
+file = 'D:\GitHub\solenoidCalibration\180117_solenoidCalibration_recBooth.txt';
+>>>>>>> origin/master
 order = 1;
 targetVol = 2.5; %microliters
 
