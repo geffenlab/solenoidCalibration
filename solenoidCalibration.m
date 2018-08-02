@@ -1,17 +1,17 @@
 clear all; close all;
 
 % args
-fn = '180801_solenoidCalibration_booth4';
+fn = '180801_solenoidCalibration_booth5';
 file = ['D:\GitHub\solenoidCalibration\' fn '.txt'];
 order = 1;
-targetVol = 2.5; %microliters
+targetVol = 5; %microliters
 
 % load and fit data
 header = csvread(file,[0]);
 d = header(2:end,:);
 header = header(1,1);
 d(:,2) = (d(:,2)-header) * 1000 / 100;
-p = polyfit(d(:,1),d(:,2),2);
+p = polyfit(d(:,1),d(:,2),1);
 x = 0:max(d(:,1));
 yhat = polyval(p,x);
 
@@ -19,6 +19,7 @@ yhat = polyval(p,x);
 valveTime = (targetVol - p(2)) / p(1);
 nLicks = 1000 / targetVol;
 
+fprintf('\n\nBooth - %s\n',fn);
 fprintf('Desired valve time for %02.2fuL per lick: %06.4fms\n',targetVol,valveTime);
 fprintf('%d licks per 1mL\n',nLicks);
 
