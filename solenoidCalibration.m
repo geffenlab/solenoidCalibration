@@ -1,11 +1,8 @@
 clear all; close all;
 
 % args
-<<<<<<< HEAD
-file = 'D:\GitHub\solenoidCalibration\180801_solenoidCalibration_booth2.txt';
-=======
-file = 'D:\GitHub\solenoidCalibration\180117_solenoidCalibration_recBooth.txt';
->>>>>>> origin/master
+fn = '180801_solenoidCalibration_booth4';
+file = ['D:\GitHub\solenoidCalibration\' fn '.txt'];
 order = 1;
 targetVol = 2.5; %microliters
 
@@ -14,7 +11,7 @@ header = csvread(file,[0]);
 d = header(2:end,:);
 header = header(1,1);
 d(:,2) = (d(:,2)-header) * 1000 / 100;
-p = polyfit(d(:,1),d(:,2),1);
+p = polyfit(d(:,1),d(:,2),2);
 x = 0:max(d(:,1));
 yhat = polyval(p,x);
 
@@ -31,3 +28,7 @@ plot(x,yhat);
 xlabel('Valve Time (ms)');
 ylabel('Volume (uL)');
 hold off
+
+print(['./' fn '_plot'],'-dpng','-r300');
+
+
