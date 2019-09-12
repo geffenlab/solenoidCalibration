@@ -1,7 +1,7 @@
 clear all; close all;
 
 % args
-fn = '190612_solenoidCalibration_booth3';
+fn = '190725_solenoidCalibration_recBooth';
 file = ['D:\GitHub\solenoidCalibration\' fn '.txt'];
 order = 1;
 targetVol = 5; %microliters
