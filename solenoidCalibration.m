@@ -1,7 +1,7 @@
 delete(instrfindall); clear all; close all;
 % args
-fn = '102019_solenoidCalibration_booth2';
-file = ['D:\GitHub\solenoidCalibration\' fn '.txt'];
+fn = '102621_solenoidCalibration_booth15';
+file = ['C:\Users\labuser\Documents\GitHub\solenoidCalibration\Data\' fn '.txt'];
 order = 1;
 targetVol = 5; %microliters
 
@@ -11,7 +11,7 @@ d = header(2:end,:);
 header = header(1,1);
 d(:,2) = diff([header d(:,2)']) * 1000 / 100;
 %d(:,2) = (d(:,2)-header) * 1000 / 100;
-d(:,2) = (d(:,2)) * 1000 / 100;
+%d(:,2) = (d(:,2)) * 1000 / 100;
 p = polyfit(d(:,1),d(:,2),1);
 x = 0:max(d(:,1));
 yhat = polyval(p,x);
