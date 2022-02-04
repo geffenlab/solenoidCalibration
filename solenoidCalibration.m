@@ -1,6 +1,6 @@
 delete(instrfindall); clear all; close all;
 % args
-fn = '220202_solenoidCalibration_booth3';
+fn = '220204_solenoidCalibration_booth4';
 output = 'D:\GitHub\solenoidCalibration\Data';
 file = fullfile(output,[fn '.txt']);
 order = 1;
@@ -29,7 +29,6 @@ scatter(d(:,1),d(:,2));
 xlim([0,max(d(:,1))])
 ylim([0,max(d(:,2))])
 plot(x,yhat);
-plot(x,6*(x-5).^.21)
 xlabel('Valve Time (ms)');
 ylabel('Volume (uL)');
 hold off
