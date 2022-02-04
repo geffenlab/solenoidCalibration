@@ -1,17 +1,17 @@
-clear all; close all;
-
+delete(instrfindall); clear all; close all;
 % args
-fn = '190725_solenoidCalibration_booth6';
-file = ['D:\GitHub\solenoidCalibration\' fn '.txt'];
-order = 2;
-targetVol = 10; %microliters
+fn = '220202_solenoidCalibration_booth3';
+output = 'D:\GitHub\solenoidCalibration\Data';
+file = fullfile(output,[fn '.txt']);
+order = 1;
+targetVol = 5; %microliters
 
 % load and fit data
 header = csvread(file,[0]);
 d = header(2:end,:);
 header = header(1,1);
-d(:,2) = (d(:,2)-header) * 1000 / 100;
-%d(:,2) = (d(:,2)) * 1000 / 100;
+d(:,2) = (d(:,2)-header) * 1000 / 100; % run this if weights arent zeroed
+%d(:,2) = (d(:,2)) * 1000 / 100; % run this if weights are zeroed
 p = polyfit(d(:,1),d(:,2),order);
 x = 0:max(d(:,1));
 yhat = polyval(p,x);
@@ -34,4 +34,4 @@ xlabel('Valve Time (ms)');
 ylabel('Volume (uL)');
 hold off
 
-print(['./' fn '_plot'],'-dpng','-r300');
+print(fullfile(output,[fn '_plot']),'-dpng','-r300');
