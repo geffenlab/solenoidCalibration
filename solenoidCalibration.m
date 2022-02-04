@@ -1,13 +1,8 @@
 delete(instrfindall); clear all; close all;
 % args
-<<<<<<< HEAD
-fn = '220202_solenoidCalibration_booth2';
+fn = '220202_solenoidCalibration_booth3';
 output = 'D:\GitHub\solenoidCalibration\Data';
 file = fullfile(output,[fn '.txt']);
-=======
-fn = '102621_solenoidCalibration_booth15';
-file = ['C:\Users\labuser\Documents\GitHub\solenoidCalibration\Data\' fn '.txt'];
->>>>>>> da1ad4da401fd87a2464013a2c93607a7cc6da8a
 order = 1;
 targetVol = 5; %microliters
 
@@ -15,16 +10,9 @@ targetVol = 5; %microliters
 header = csvread(file,[0]);
 d = header(2:end,:);
 header = header(1,1);
-<<<<<<< HEAD
 d(:,2) = (d(:,2)-header) * 1000 / 100; % run this if weights arent zeroed
 %d(:,2) = (d(:,2)) * 1000 / 100; % run this if weights are zeroed
 p = polyfit(d(:,1),d(:,2),order);
-=======
-d(:,2) = diff([header d(:,2)']) * 1000 / 100;
-%d(:,2) = (d(:,2)-header) * 1000 / 100;
-%d(:,2) = (d(:,2)) * 1000 / 100;
-p = polyfit(d(:,1),d(:,2),1);
->>>>>>> da1ad4da401fd87a2464013a2c93607a7cc6da8a
 x = 0:max(d(:,1));
 yhat = polyval(p,x);
 
