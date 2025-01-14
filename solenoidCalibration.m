@@ -1,6 +1,6 @@
 delete(instrfindall); clear all; close all;
 % args
-fn = '220204_solenoidCalibration_booth4';
+fn = '121224_solenoidCalibration_booth13_L';
 output = 'D:\GitHub\solenoidCalibration\Data';
 file = fullfile(output,[fn '.txt']);
 order = 1;

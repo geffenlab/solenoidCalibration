@@ -7,7 +7,7 @@
   Brian Isett, 2016-06-19
  
 */
-const int solenoidPin =  9;      // change this to the pin connected to the solenoid driver circuit,
+const int solenoidPin =  9;      // change this to the pin connected to the solenoid driver circuit, 8 is right
                                   //pin 13 will flash the onboard Arduino Uno LED
 const int offDuration = 500; // Value in ms to wait in-between solenoid openings (you might need to adjust this)
 int openDuration = 0;
