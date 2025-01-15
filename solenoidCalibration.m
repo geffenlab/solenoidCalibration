@@ -1,7 +1,7 @@
 delete(instrfindall); clear all; close all;
 % args
-fn = '220204_solenoidCalibration_booth4';
-output = 'D:\GitHub\solenoidCalibration\Data';
+fn = '011425_solenoidCalibration_booth14_L';
+output = 'C:\Users\labuser\Documents\GitHub\solenoidCalibration\Data';
 file = fullfile(output,[fn '.txt']);
 order = 1;
 targetVol = 5; %microliters
